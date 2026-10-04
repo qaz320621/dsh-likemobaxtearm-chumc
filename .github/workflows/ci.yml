@@ -1,0 +1,25 @@
+name: ci
+
+# The full suite needs a DSH installation (borrows node-pty/cordis/dsh-tools) and a reachable sshd.
+# CI runs the dependency-free subset: static inject audit + client registration/data-path tests,
+# plus a syntax check of every shipped file.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax check every shipped file
+        run: |
+          for f in index.js client.js client.xterm.js build.mjs src/*.js chunk/*.js test/*.mjs tools/*.mjs; do
+            node --check "$f"
+          done
+      - name: Dependency-free test suites
+        run: npm run test:offline
