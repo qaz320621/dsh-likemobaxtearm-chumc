@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="SSH">
+  <rect x="4" y="8" width="56" height="48" rx="9" fill="#12314f"/>
+  <rect x="4" y="8" width="56" height="12" rx="9" fill="#1c4a75"/>
+  <circle cx="13" cy="14" r="2.2" fill="#8fd0ff"/>
+  <circle cx="20" cy="14" r="2.2" fill="#5fa8e0"/>
+  <circle cx="27" cy="14" r="2.2" fill="#3f7fb5"/>
+  <path d="M13 30l7 6-7 6" fill="none" stroke="#8fd0ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M26 44h13" fill="none" stroke="#e6f4ff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M47 27a5.5 5.5 0 0 1 5.5 5.5v2.5h1a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h1v-2.5A5.5 5.5 0 0 1 47 27zm0 3a2.5 2.5 0 0 0-2.5 2.5v2.5h5V32.5A2.5 2.5 0 0 0 47 30z" fill="#7fe0a8"/>
+</svg>

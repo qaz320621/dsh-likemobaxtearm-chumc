@@ -1,0 +1,66 @@
+{
+  "name": "dsh-likemobaxtearm-chumc",
+  "version": "1.0.0",
+  "description": "SSH 控制台：本机 ssh 跑在真实 PTY 中，用户与 AI 共用同一会话、双向可见、全程审计；含 Windows/ConPTY 适配",
+  "type": "module",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-theme",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-connection"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node test/inject-audit.mjs && node test/connection-contract.mjs && node test/cordis-activation.mjs && node test/host-smoke.mjs && node test/host-rpc.mjs && node test/client-wiring.mjs && node test/log-retention.mjs && node test/windows-conpty.mjs && node test/identity.mjs",
+    "dist": "node dist.mjs",
+    "test:offline": "node test/inject-audit.mjs && node test/client-wiring.mjs && node test/log-retention.mjs && node test/windows-conpty.mjs && node test/identity.mjs",
+    "metrics": "node tools/log-metrics.mjs"
+  },
+  "files": [
+    "index.js",
+    "src/*.js",
+    "client.js",
+    "client.*.js",
+    "chunk/*.js",
+    "build.mjs",
+    "icon.svg",
+    "locale/*.json",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "test/*.mjs",
+    "tools/*.mjs"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "bundle",
+    "ssh",
+    "terminal",
+    "xterm",
+    "ai-agent"
+  ]
+}

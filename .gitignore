@@ -1,0 +1,21 @@
+# 运行时数据（插件写到使用者自己的 workspace 里，绝不应提交）
+.dsh-ssh/
+*.jsonl
+hosts.json
+client-errors.log
+
+# 构建与分发产物
+node_modules/
+dist/
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# 日志
+*.log
+npm-debug.log*

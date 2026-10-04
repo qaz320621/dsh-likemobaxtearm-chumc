@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "SSH Console",
+    "description": "SSH session tabs in the right sidebar: the local ssh client runs in a real PTY, the operator and the AI share one session, and every action is logged."
+  }
+}
