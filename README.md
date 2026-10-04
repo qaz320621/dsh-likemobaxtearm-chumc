@@ -80,7 +80,7 @@ JSONL 审计日志；AI 通过 9 个工具操作会话，并受**三级权限**�
 ### 1. 获取源码
 
 ```bash
-git clone <你的仓库地址> dsh-ssh
+git clone https://github.com/qaz320621/dsh-likemobaxtearm-chumc.git dsh-ssh
 cd dsh-ssh
 ```
 
@@ -108,6 +108,17 @@ node build.mjs        # → 生成/覆盖 client.xterm.js
 > 用 `plugin_manager` 的 `install_bundle`，target 是 `<这个目录的绝对路径>`
 
 **方式 B：自己在 Web UI 装** —— 侧边栏 **Plugins** 页 → 安装 → 填入该目录的绝对路径（或 npm 包名）。
+
+**方式 C：直接从本仓库（GitHub）装** —— 「添加插件」也接受 Git 地址，填下面任一形式即可：
+
+```text
+https://github.com/qaz320621/dsh-likemobaxtearm-chumc
+github:qaz320621/dsh-likemobaxtearm-chumc
+```
+
+> - `qaz320621/dsh-likemobaxtearm-chumc` 这种**省略前缀**的写法会被当成 npm 包名而拒绝，
+>   必须带 `https://` 或 `github:` 前缀。
+> - 本仓库**已经附带构建产物** `client.xterm.js`，所以从 Git 安装**不需要**跑任何构建步骤。
 
 `install_bundle` 会调用 profile 的包管理器完成安装与选择。**安装动作需要 `danger-full-access` 或审批**，
 因为插件 Host 代码会在 Harness 进程内、工作区沙箱之外执行。
@@ -335,6 +346,10 @@ npm run metrics -- <同上>
 不想要落盘日志就设 `logEnabled: false`。仓库自带的 `dist.mjs` 会在打包时**拒绝**包含日志/hosts/绝对家目录路径的副本。
 
 ## 分发
+
+> **本仓库是发布镜像**：包含作者的运行时代码与构建产物（`client.xterm.js`）以及可移植测试，
+> 但**不含**打包脚本 `dist.mjs` 与 `SPEC.md`。因此下面的 `node dist.mjs` 在本仓库不可用 ——
+> 需要打包/改名时请向作者索取完整源码包（或自行按 `build.mjs` 重建客户端 chunk）。
 
 ```bash
 node dist.mjs                    # 组装干净副本 → dist/<包名>

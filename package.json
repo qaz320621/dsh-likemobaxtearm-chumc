@@ -50,6 +50,14 @@
     "tools/*.mjs"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qaz320621/dsh-likemobaxtearm-chumc.git"
+  },
+  "homepage": "https://github.com/qaz320621/dsh-likemobaxtearm-chumc#readme",
+  "bugs": {
+    "url": "https://github.com/qaz320621/dsh-likemobaxtearm-chumc/issues"
+  },
   "engines": {
     "node": ">=18"
   },
